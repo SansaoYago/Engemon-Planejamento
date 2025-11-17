@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <style>
+        @media screen and (max-width: 668px) {
+            #contain {
+                display: flex;
+                flex-flow: column;
+            }
+
+            section {
+                width: 80vw;
+            }
+
+            input[type="submit"] {
+                display: block;
+                margin: 5px auto;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main id="contain">
+        <section id="entrada">
+            <form>
+                <nav>
+                    <fieldset>
+                        <legend>Descrição</legend>
+                        <textarea name="desc" id="desc"></textarea>
+                    </fieldset>
+                </nav>
+                <input type="submit" value="Registrar">
+            </form>
+        </section>
+        <section id="saida">
+            <div id="out"></div>
+        </section>
+    </main>
+
+    <script>
+const frm = document.querySelector("form")
+const outDiv = document.querySelector("#out") 
+
+frm.addEventListener('submit', (e)=> {
+    e.preventDefault()
+    
+    const inpt = frm.desc.value
+
+    if (inpt.trim() === "") {
+        alert("Por favor, insira a descrição da atividade.")
+        return
+    }
+
+    // 1. Cria a Checkbox
+    const checkbox = document.createElement("input")
+    checkbox.type = "checkbox"
+
+    // 2. Cria o elemento de texto (Span)
+    const atividadeTexto = document.createElement("span")
+    atividadeTexto.innerText = " " + inpt // Adiciona um espaço para separar da checkbox
+    
+    // 3. Cria um contêiner (Div) para agrupar checkbox e texto e garantir nova linha
+    const itemContainer = document.createElement("div")
+    itemContainer.style.marginBottom = "5px" // Espaçamento entre os itens
+    
+    // Anexa a checkbox e o texto ao contêiner
+    itemContainer.appendChild(checkbox)
+    itemContainer.appendChild(atividadeTexto)
+
+    // 4. Adiciona o Event Listener à Checkbox
+    checkbox.addEventListener('change', (event) => {
+        // Verifica se a checkbox foi marcada
+        if (event.target.checked) {
+            // Se marcada, adiciona a classe 'concluida' ao texto para riscar
+            atividadeTexto.classList.add('concluida')
+        } else {
+            // Se desmarcada, remove a classe 'concluida'
+            atividadeTexto.classList.remove('concluida')
+        }
+    })
+
+    // 5. Adiciona o novo contêiner à div de saída
+    outDiv.appendChild(itemContainer) 
+    
+    // Limpa o campo de entrada
+    frm.desc.value = ""
+})
+    </script>
+</body>
+</html>
