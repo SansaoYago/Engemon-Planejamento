@@ -41,14 +41,12 @@
         </section>
         <section id="saida">
             <div id="out"></div>
-            <input type="button" value="Limpar Concluídas" id="btLimpar">
         </section>
     </main>
 
     <script>
 const frm = document.querySelector("form")
-const outDiv = document.querySelector("#out")
-const btLimpar = document.querySelector("#btLimpar")
+const outDiv = document.querySelector("#out") 
 
 frm.addEventListener('submit', (e)=> {
     e.preventDefault()
@@ -94,139 +92,6 @@ frm.addEventListener('submit', (e)=> {
     // Limpa o campo de entrada
     frm.desc.value = ""
 })
-
-        // ----------------------------------------------------------------------
-// FUNÇÕES DE PERSISTÊNCIA E MANIPULAÇÃO
-// ----------------------------------------------------------------------
-
-/**
- * Salva todas as atividades atualmente visíveis no DOM no localStorage.
- */
-const salvarAtividades = () => {
-    const atividades = [];
-    const itens = outDiv.querySelectorAll("div"); // Pega todos os contêineres de itens
-
-    itens.forEach(item => {
-        const checkbox = item.querySelector('input[type="checkbox"]');
-        const textoSpan = item.querySelector('span');
-        
-        // Armazena o texto e o estado (concluído ou não)
-        atividades.push({
-            texto: textoSpan.innerText.trim(),
-            concluida: checkbox.checked
-        });
-    });
-
-    // Salva a array de objetos como uma string JSON no localStorage
-    localStorage.setItem('minhasAtividades', JSON.stringify(atividades));
-};
-
-/**
- * Cria e configura um item de atividade (checkbox, span, listeners) e o anexa ao DOM.
- * @param {string} texto - O texto da atividade.
- * @param {boolean} concluida - O estado inicial do checkbox.
- */
-const criarItemAtividade = (texto, concluida = false) => {
-    // 1. Cria a Checkbox
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.checked = concluida; // Define o estado inicial
-
-    // 2. Cria o elemento de texto (Span)
-    const atividadeTexto = document.createElement("span");
-    atividadeTexto.innerText = " " + texto; 
-    
-    // Se estiver concluída, já aplica o estilo
-    if (concluida) {
-        atividadeTexto.classList.add('concluida');
-    }
-
-    // 3. Cria um contêiner (Div)
-    const itemContainer = document.createElement("div");
-    itemContainer.style.marginBottom = "5px";
-
-    // Anexa a checkbox e o texto ao contêiner
-    itemContainer.appendChild(checkbox);
-    itemContainer.appendChild(atividadeTexto);
-
-    // 4. Adiciona o Event Listener à Checkbox
-    checkbox.addEventListener('change', (event) => {
-        if (event.target.checked) {
-            atividadeTexto.classList.add('concluida');
-        } else {
-            atividadeTexto.classList.remove('concluida');
-        }
-        // Salva o estado da lista sempre que um item for marcado/desmarcado
-        salvarAtividades();
-    });
-
-    // 5. Adiciona o novo contêiner à div de saída
-    outDiv.appendChild(itemContainer);
-};
-
-/**
- * Carrega as atividades salvas no localStorage e as exibe no DOM.
- */
-const carregarAtividades = () => {
-    // Tenta obter os dados. Se não houver, retorna um array vazio.
-    const dadosSalvos = localStorage.getItem('minhasAtividades');
-    const atividades = dadosSalvos ? JSON.parse(dadosSalvos) : [];
-
-    // Para cada atividade salva, recria o item no DOM
-    atividades.forEach(atividade => {
-        criarItemAtividade(atividade.texto, atividade.concluida);
-    });
-};
-
-// ----------------------------------------------------------------------
-// EVENT LISTENERS
-// ----------------------------------------------------------------------
-
-// Ação de Registrar (Submit)
-frm.addEventListener('submit', (e)=> {
-    e.preventDefault();
-    
-    const inpt = frm.desc.value;
-
-    if (inpt.trim() === "") {
-        alert("Por favor, insira a descrição da atividade.");
-        return;
-    }
-
-    // Cria o novo item
-    criarItemAtividade(inpt);
-
-    // Salva a lista inteira
-    salvarAtividades(); 
-    
-    // Limpa o campo de entrada
-    frm.desc.value = "";
-});
-
-
-// Ação de Limpar Concluídas
-btLimpar.addEventListener('click', () => {
-    // Seleciona todos os checkboxes marcados
-    const checksMarcados = outDiv.querySelectorAll('input[type="checkbox"]:checked');
-    
-    if (checksMarcados.length === 0) {
-        alert("Nenhuma atividade concluída para remover.");
-        return;
-    }
-
-    // Percorre cada checkbox marcado e remove seu contêiner pai
-    checksMarcados.forEach(checkbox => {
-        // O elemento pai do checkbox (o <div>)
-        const itemContainer = checkbox.parentElement;
-        itemContainer.remove();
-    });
-
-    // Após a remoção, a lista precisa ser salva novamente no localStorage
-    salvarAtividades();
-});
-
-// Ação Inicial: Carregar as atividades salvas quando a página é carregada
-window.addEventListener('load', carregarAtividades);
     </script>
 </body>
 </html>
