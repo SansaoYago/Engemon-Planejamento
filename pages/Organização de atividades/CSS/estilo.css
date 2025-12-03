@@ -1,109 +1,109 @@
 @charset "UTF-8";
 
 * {
-            padding: 0;
-            margin: 0;
-        }
+    padding: 0;
+    margin: 0;
+}
 
-        #contain {
-            background-image: url('../img/alto-angulo-de-area-de-trabalho-com-espaco-para-laptop-e-copia.jpg');
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
+#contain {
+    background-image: url('../img/alto-angulo-de-area-de-trabalho-com-espaco-para-laptop-e-copia.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
 
-            width: 100vw;
-            height: 100vh;
-            box-sizing: border-box;
-            padding: 10px;
-            display: flex;
-            flex-direction: row;
-        }
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
 
-        #entrada {
-            align-items: center;
-        }
-
-        #desc {
-            width: 200px;
-            height: 200px;
-        }
-
-        #saida {
-            background-color: rgba(74, 70, 28, 0.662);
-            border-radius: 10px;
-            font-size: 1.4em;
-            color: white;
-            font-family: 'Courier New', Courier, monospace;
-            overflow-y: scroll;
-            box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.362);
-        }
-
-        #saida::-webkit-scrollbar {
-            background-color: rgba(128, 128, 128, 0);
-        }
-
-        #saida::-webkit-scrollbar-thumb {
-            background-color: rgba(255, 255, 255, 0.316);
-        }
-
-
-
-        section {
-            width: 500px;
-            height: 600px;
-
-            padding: 15px;
-            margin: auto;
-            display: flex;
-            flex-flow: columnn nowrap;
-            justify-content: center;
-        }
-
-        nav {
-            background-color: rgba(127, 255, 212, 0.504);
-            padding: 10px;
-            border-radius: 10px;
-            
-        }
-
-        fieldset {
-            color: white;
-            font-family: 'Courier New', Courier, monospace;
-            font-size: 1.5em;
-            font-weight: 500;
-            text-shadow: 1px 1px 1px black;
-            
-            padding: 10px;
-            border-radius: 10px;
-        }
-
-        input[type="submit"] {
-    
-            float: right;
-            margin-top: 20px;
-        }
-
-        
-
-        /* Estilo para a atividade concluída */
-    .concluida {
-        text-decoration: line-through;
-        color: #777; /* Opcional: Deixar a cor mais clara */
+    #entrada {
+        align-items: center;
     }
 
-    .btn-excluir,input[type="submit"] {
-        font-family: 'Courier New', Courier, monospace;
-        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.537);
-        background-color: rgba(127, 255, 212, 0.504);
+    #desc {
+        width: 200px;
+        height: 200px;
+    }
+
+    #saida {
+        background-color: rgba(74, 70, 28, 0.662);
+        border-radius: 10px;
+        font-size: 1.4em;
         color: white;
-        border: 1px solid rgba(255, 255, 255, 0.381);
-        border-radius: 5px;
-        padding: 2px 1px;
-        margin-left: 8px;
+        font-family: 'Courier New', Courier, monospace;
+        overflow-y: scroll;
+        box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.362);
     }
 
-    .btn-excluir:hover, input[type="submit"]:hover {
-        background-color: rgba(127, 255, 212, 0.578);
-        cursor: pointer;
-        transition: 500ms;
+    #saida::-webkit-scrollbar {
+        background-color: rgba(128, 128, 128, 0);
     }
+
+    #saida::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.316);
+    }
+
+
+
+    section {
+        width: 500px;
+        height: 600px;
+
+        padding: 15px;
+        margin: auto;
+        display: flex;
+        flex-flow: columnn nowrap;
+        justify-content: center;
+    }
+
+    nav {
+        background-color: rgba(127, 255, 212, 0.504);
+        padding: 10px;
+        border-radius: 10px;
+        
+    }
+
+    fieldset {
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1.5em;
+        font-weight: 500;
+        text-shadow: 1px 1px 1px black;
+        
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    input[type="submit"] {
+
+        float: right;
+        margin-top: 20px;
+    }
+
+    
+
+    /* Estilo para a atividade concluída */
+.concluida {
+    text-decoration: line-through;
+    color: #777; /* Opcional: Deixar a cor mais clara */
+}
+
+.btn-excluir,input[type="submit"] {
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.537);
+    background-color: rgba(127, 255, 212, 0.504);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.381);
+    border-radius: 5px;
+    padding: 2px 1px;
+    margin-left: 8px;
+}
+
+.btn-excluir:hover, input[type="submit"]:hover {
+    background-color: rgba(127, 255, 212, 0.578);
+    cursor: pointer;
+    transition: 500ms;
+}
