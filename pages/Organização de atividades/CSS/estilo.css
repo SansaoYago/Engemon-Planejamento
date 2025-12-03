@@ -81,3 +81,20 @@
         text-decoration: line-through;
         color: #777; /* Opcional: Deixar a cor mais clara */
     }
+
+    .btn-excluir,input[type="submit"] {
+        font-family: 'Courier New', Courier, monospace;
+        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.537);
+        background-color: rgba(127, 255, 212, 0.504);
+        color: white;
+        border: 1px solid rgba(255, 255, 255, 0.381);
+        border-radius: 5px;
+        padding: 2px 1px;
+        margin-left: 8px;
+    }
+
+    .btn-excluir:hover, input[type="submit"]:hover {
+        background-color: rgba(127, 255, 212, 0.578);
+        cursor: pointer;
+        transition: 200ms;
+    }
