@@ -107,3 +107,15 @@
     cursor: pointer;
     transition: 500ms;
 }
+
+.btn-excluir.oculto {
+    display: none; /* Esconde o botão sem ocupar espaço */
+}
+
+.btn-excluir.visivel {
+    display: inline-block; /* Garante que o botão apareça */
+}
+
+.concluida {
+    text-decoration: line-through; /* Mantém o risco no texto concluído */
+}
