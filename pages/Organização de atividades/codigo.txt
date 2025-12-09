@@ -1,21 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../img/lista.ico" type="image/x-icon">
+    <title>Anotações</title>
+    <link rel="stylesheet" href="CSS/estilo.css">
+    <style>
+        @media screen and (max-width: 968px) {
+            #contain {
+                background-image: none;
+                background-color: rgba(0, 0, 0, 0.925);
+                display: flex;
+                flex-flow: column;
+            }
+
+            section {
+                width: 80vw;
+            }
+
+            input[type="submit"] {
+                display: block;
+                margin: 5px auto;
+                float: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main id="contain">
+        <section id="entrada">
+            <form>
+                <nav>
+                    <fieldset>
+                        <legend>Descrição</legend>
+                        <textarea name="desc" id="desc"></textarea>
+                    </fieldset>
+                </nav>
+                <input type="submit" value="Registrar">
+            </form>
+        </section>
+        <section id="saida">
+            <div id="out"></div>
+        </section>
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+
+(CSS)
+
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#contain {
+    background-image: url('../img/alto-angulo-de-area-de-trabalho-com-espaco-para-laptop-e-copia.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+    #entrada {
+        align-items: center;
+    }
+
+    #desc {
+        width: 200px;
+        height: 200px;
+    }
+
+    #saida {
+        background-color: rgba(74, 70, 28, 0.662);
+        border-radius: 10px;
+        font-size: 1.4em;
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        overflow-y: scroll;
+        box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.362);
+    }
+
+    #saida::-webkit-scrollbar {
+        background-color: rgba(128, 128, 128, 0);
+    }
+
+    #saida::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.316);
+    }
+
+
+
+    section {
+        width: 500px;
+        height: 600px;
+
+        padding: 15px;
+        margin: auto;
+        display: flex;
+        flex-flow: columnn nowrap;
+        justify-content: center;
+    }
+
+    nav {
+        background-color: rgba(127, 255, 212, 0.504);
+        padding: 10px;
+        border-radius: 10px;
+        
+    }
+
+    fieldset {
+        color: white;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 1.5em;
+        font-weight: 500;
+        text-shadow: 1px 1px 1px black;
+        
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    input[type="submit"] {
+
+        float: right;
+        margin-top: 20px;
+    }
+
+    
+
+    /* Estilo para a atividade concluída */
+.concluida {
+    text-decoration: line-through;
+    color: #777; /* Opcional: Deixar a cor mais clara */
+}
+
+.btn-excluir,input[type="submit"] {
+    font-family: 'Courier New', Courier, monospace;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.537);
+    background-color: rgba(127, 255, 212, 0.504);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.381);
+    border-radius: 5px;
+    padding: 2px 1px;
+    margin-left: 8px;
+}
+
+.btn-excluir:hover, input[type="submit"]:hover {
+    background-color: rgba(127, 255, 212, 0.578);
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.btn-excluir.oculto {
+    display: none; /* Esconde o botão sem ocupar espaço */
+}
+
+.btn-excluir.visivel {
+    display: inline-block; /* Garante que o botão apareça */
+}
+
+.concluida {
+    text-decoration: line-through; /* Mantém o risco no texto concluído */
+}
+
+(JAVASCRIPT)
+
 const frm = document.querySelector("form");
 const outDiv = document.querySelector("#out");
-
-// ==========================================================
-// 0. DEFINIÇÃO DAS TAREFAS MENSAIS (SIMULANDO O ARQUIVO JSON)
-// ==========================================================
-/**
- * Lista de tarefas que devem ser adicionadas automaticamente uma vez por mês.
- * dia_do_mes: O dia do mês em que a tarefa deve ser adicionada (1 a 31).
- */
-const tarefasMensais = [
-    { texto: "Pagar a conta de luz", dia_do_mes: 5 },
-    { texto: "Revisar o orçamento", dia_do_mes: 15 },
-    { texto: "Agendar o dentista", dia_do_mes: 28 },
-    // Adicione suas próprias tarefas recorrentes aqui:
-    // { texto: "Exemplo de Atividade", dia_do_mes: 1 } 
-];
-
 
 // ==========================================================
 // 1. FUNÇÃO REUTILIZÁVEL PARA ADICIONAR A TAREFA À TELA
@@ -49,10 +210,10 @@ function adicionarTarefaNaTela(texto, concluida = false) {
     if (concluida) {
         atividadeTexto.classList.add('concluida');
         // Se a tarefa já está concluída ao carregar, o botão aparece
-        btnExcluir.classList.add('visivel');
+        btnExcluir.classList.add('visivel'); 
     } else {
         // Se a tarefa NÃO está concluída, o botão é escondido por padrão
-        btnExcluir.classList.add('oculto');
+        btnExcluir.classList.add('oculto'); 
     }
 
     // === Event Listeners ===
@@ -112,86 +273,26 @@ function salvarTarefas() {
 }
 
 // ==========================================================
-// 3. NOVA FUNÇÃO PARA VERIFICAR E ADICIONAR TAREFAS MENSAIS
-// ==========================================================
-function verificarEAdicionarTarefasMensais() {
-    const hoje = new Date();
-    const diaHoje = hoje.getDate();
-    // Cria uma chave única por Mês e Ano (Ex: 2025_12)
-    const anoMesAtual = `${hoje.getFullYear()}_${hoje.getMonth() + 1}`;
-
-    // 1. Carrega o histórico de tarefas mensais adicionadas
-    let historicoJSON = localStorage.getItem('historicoMensal');
-    let historico = historicoJSON ? JSON.parse(historicoJSON) : { ano_mes: "", adicionadas: [] };
-
-    // 2. Verifica se o mês mudou. Se sim, reseta o histórico para o novo ciclo.
-    if (historico.ano_mes !== anoMesAtual) {
-        historico = { ano_mes: anoMesAtual, adicionadas: [] };
-    }
-
-    let houveAlteracao = false; // Flag para salvar o estado
-
-    tarefasMensais.forEach(tarefaMensal => {
-        // Verifica se é o dia correto E se a tarefa ainda não foi marcada como 'adicionada' neste mês
-        if (tarefaMensal.dia_do_mes === diaHoje &&
-            !historico.adicionadas.includes(tarefaMensal.texto)) {
-
-            // Obtém todas as tarefas atualmente no DOM para checar duplicidade
-            const tarefasAtuais = document.querySelectorAll("#out span");
-            // Verifica se a tarefa já existe na lista principal (minhasTarefas)
-            const jaExiste = Array.from(tarefasAtuais).some(span => span.innerText === tarefaMensal.texto);
-
-            if (!jaExiste) {
-                // Se NÃO existe, adiciona a nova tarefa à tela
-                adicionarTarefaNaTela(tarefaMensal.texto, false);
-                houveAlteracao = true;
-            }
-            
-            // Em ambos os casos (adicionada agora OU já existia e está persistindo da última vez),
-            // marca a tarefa como 'adicionada' no histórico mensal para evitar nova adição
-            // até o próximo ciclo (mês).
-            historico.adicionadas.push(tarefaMensal.texto);
-            houveAlteracao = true; // Força o salvamento do histórico atualizado
-        }
-    });
-
-    // 4. Salva o estado se houveram mudanças (novas tarefas ou histórico atualizado)
-    if (houveAlteracao) {
-        // Se novas tarefas foram adicionadas ao DOM, salva a lista principal
-        if (document.querySelectorAll("#out span").length > JSON.parse(localStorage.getItem('minhasTarefas') || '[]').length) {
-            salvarTarefas();
-        }
-        // Salva o histórico mensal para manter a recorrência
-        localStorage.setItem('historicoMensal', JSON.stringify(historico));
-    }
-}
-
-
-// ==========================================================
-// 4. FUNÇÃO PARA CARREGAR AS TAREFAS
-// (MODIFICADA PARA CARREGAR PRIMEIRO AS TAREFAS SALVAS E DEPOIS ADICIONAR AS MENSAIS)
+// 3. FUNÇÃO PARA CARREGAR AS TAREFAS
 // ==========================================================
 function carregarTarefas() {
     // Tenta obter a string JSON do localStorage
     const tarefasJSON = localStorage.getItem('minhasTarefas');
 
-    // 1. Carrega e exibe as tarefas salvas pelo usuário
+    // Se existir algo salvo
     if (tarefasJSON) {
         // Converte a string JSON de volta para um array de objetos
-        const tarefas = JSON.parse(tarefasJSON);
+        const tarefas = JSON.parse(tarefasJSON); 
 
         // Itera sobre o array e cria os elementos na tela
         tarefas.forEach(tarefa => {
             adicionarTarefaNaTela(tarefa.texto, tarefa.concluida);
         });
     }
-
-    // 2. Verifica e adiciona tarefas mensais se for o dia
-    verificarEAdicionarTarefasMensais();
 }
 
 // ==========================================================
-// 5. LISTENER PRINCIPAL DO FORMULÁRIO (NOVO REGISTRO)
+// 4. LISTENER PRINCIPAL DO FORMULÁRIO (NOVO REGISTRO)
 // ==========================================================
 frm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -214,6 +315,9 @@ frm.addEventListener('submit', (e) => {
 });
 
 // ==========================================================
-// 6. CHAMA A FUNÇÃO DE CARREGAMENTO QUANDO O SCRIPT INICIA
+// 5. CHAMA A FUNÇÃO DE CARREGAMENTO QUANDO O SCRIPT INICIA
 // ==========================================================
 document.addEventListener('DOMContentLoaded', carregarTarefas);
+
+(NOVAS FUNCIONALIDADES)
+
