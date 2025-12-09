@@ -9,9 +9,11 @@ const outDiv = document.querySelector("#out");
  * dia_do_mes: O dia do mês em que a tarefa deve ser adicionada (1 a 31).
  */
 const tarefasMensais = [
-    { texto: "Pagar a conta de luz", dia_do_mes: 5 },
-    { texto: "Revisar o orçamento", dia_do_mes: 15 },
-    { texto: "Agendar o dentista", dia_do_mes: 28 },
+    { texto: "Enviar Contador da Impressora para Katiuscia", dia_do_mes: 25 },
+    { texto: "ZAP TAXI", dia_do_mes: 15 },
+    { texto: "M2E", dia_do_mes: 28 },
+    { texto: "TKS", dia_do_mes: 1 },
+    { texto: "SAMM(Internet)", dia_do_mes: 1 }
     // Adicione suas próprias tarefas recorrentes aqui:
     // { texto: "Exemplo de Atividade", dia_do_mes: 1 } 
 ];
