@@ -1,121 +1,147 @@
 @charset "UTF-8";
 
+/* Reset e Configurações Globais */
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
 
+body {
+    overflow: hidden; /* Evita scroll na página inteira */
+}
+
+/* Container Principal */
 #contain {
     background-image: url('../img/alto-angulo-de-area-de-trabalho-com-espaco-para-laptop-e-copia.jpg');
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-
     width: 100vw;
     height: 100vh;
-    box-sizing: border-box;
-    padding: 10px;
+    padding: 20px;
     display: flex;
     flex-direction: row;
+    gap: 20px;
 }
 
-    #entrada {
-        align-items: center;
-    }
+/* Seções de Entrada e Saída */
+section {
+    width: 500px;
+    max-height: 90vh;
+    padding: 20px;
+    margin: auto;
+    display: flex;
+    flex-direction: column; /* Corrigido de 'columnn' */
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+}
 
-    #desc {
-        width: 200px;
-        height: 200px;
-    }
+#saida {
+    background-color: rgba(74, 70, 28, 0.7);
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    overflow-y: auto; /* Scroll apenas aqui se houver muitas tarefas */
+    box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.1);
+}
 
-    #saida {
-        background-color: rgba(74, 70, 28, 0.662);
-        border-radius: 10px;
-        font-size: 1.4em;
-        color: white;
-        font-family: 'Courier New', Courier, monospace;
-        overflow-y: scroll;
-        box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.362);
-    }
+/* Elementos do Formulário */
+nav {
+    background-color: rgba(127, 255, 212, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+}
 
-    #saida::-webkit-scrollbar {
-        background-color: rgba(128, 128, 128, 0);
-    }
+fieldset {
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px black;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+}
 
-    #saida::-webkit-scrollbar-thumb {
-        background-color: rgba(255, 255, 255, 0.316);
-    }
+#desc {
+    width: 100%;
+    height: 120px;
+    margin-top: 10px;
+    padding: 10px;
+    resize: none;
+}
 
+/* Estilo dos Itens na Saída */
+.item-tarefa {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    gap: 10px;
+}
 
+.item-tarefa span {
+    flex-grow: 1;
+    font-size: 1em;
+    word-break: break-word;
+}
 
-    section {
-        width: 500px;
-        height: 600px;
+/* Botões */
+button, input[type="submit"] {
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
 
-        padding: 15px;
-        margin: auto;
-        display: flex;
-        flex-flow: columnn nowrap;
-        justify-content: center;
-    }
+input[type="submit"] {
+    background-color: rgba(127, 255, 212, 0.7);
+    color: white;
+    margin-top: 15px;
+    float: right;
+}
 
-    nav {
-        background-color: rgba(127, 255, 212, 0.504);
-        padding: 10px;
-        border-radius: 10px;
-        
-    }
+.btn-excluir {
+    background-color: rgba(255, 99, 71, 0.6);
+    color: white;
+}
 
-    fieldset {
-        color: white;
-        font-family: 'Courier New', Courier, monospace;
-        font-size: 1.5em;
-        font-weight: 500;
-        text-shadow: 1px 1px 1px black;
-        
-        padding: 10px;
-        border-radius: 10px;
-    }
+.btn-mover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    font-weight: bold;
+}
 
-    input[type="submit"] {
+.btn-mover:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
 
-        float: right;
-        margin-top: 20px;
-    }
-
-    
-
-    /* Estilo para a atividade concluída */
+/* Classes de Estado */
 .concluida {
     text-decoration: line-through;
-    color: #777; /* Opcional: Deixar a cor mais clara */
+    color: rgba(255, 255, 255, 0.4);
 }
 
-.btn-excluir,input[type="submit"] {
-    font-family: 'Courier New', Courier, monospace;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.537);
-    background-color: rgba(127, 255, 212, 0.504);
-    color: white;
-    border: 1px solid rgba(255, 255, 255, 0.381);
-    border-radius: 5px;
-    padding: 2px 1px;
-    margin-left: 8px;
+.oculto { display: none; }
+.visivel { display: inline-block; }
+
+/* Scrollbar Personalizada */
+#saida::-webkit-scrollbar { width: 8px; }
+#saida::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
 }
 
-.btn-excluir:hover, input[type="submit"]:hover {
-    background-color: rgba(127, 255, 212, 0.578);
-    cursor: pointer;
-    transition: 500ms;
-}
-
-.btn-excluir.oculto {
-    display: none; /* Esconde o botão sem ocupar espaço */
-}
-
-.btn-excluir.visivel {
-    display: inline-block; /* Garante que o botão apareça */
-}
-
-.concluida {
-    text-decoration: line-through; /* Mantém o risco no texto concluído */
+/* Responsividade */
+@media screen and (max-width: 768px) {
+    #contain {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+    section { width: 95%; margin-bottom: 20px; }
+    input[type="submit"] { float: none; width: 100%; }
 }
