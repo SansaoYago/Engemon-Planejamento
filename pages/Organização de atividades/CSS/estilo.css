@@ -27,8 +27,6 @@ body {
 
 /* Seções de Entrada e Saída */
 section {
-    width: 500px;
-    max-height: 90vh;
     padding: 20px;
     margin: auto;
     display: flex;
@@ -143,5 +141,14 @@ input[type="submit"] {
         overflow-y: auto;
     }
     section { width: 95%; margin-bottom: 20px; }
+    #entrada {
+        order: 2;
+    }
     input[type="submit"] { float: none; width: 100%; }
+}
+
+@media screen and (min-width: 768px) {
+    #saida {
+        width: 800px;
+    }
 }

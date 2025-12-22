@@ -2,7 +2,7 @@ const frm = document.querySelector("form");
 const outDiv = document.querySelector("#out");
 
 const tarefasMensais = [
-    { texto: "Enviar Contador da Impressora para Katiuscia", dia_do_mes: 25 },
+    { texto: "Enviar Contador da Impressora para Katiuscia", dia_do_mes: 23 },
     { texto: "ZAP TAXI", dia_do_mes: 15 },
     { texto: "M2E", dia_do_mes: 28 },
     { texto: "TKS", dia_do_mes: 1 },
