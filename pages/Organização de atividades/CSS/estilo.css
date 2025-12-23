@@ -22,7 +22,6 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: row;
-    gap: 20px;
 }
 
 /* Seções de Entrada e Saída */
@@ -36,10 +35,11 @@ section {
 }
 
 #saida {
+    height: 90vh;
     background-color: rgba(74, 70, 28, 0.7);
     color: white;
     font-family: 'Courier New', Courier, monospace;
-    overflow-y: auto; /* Scroll apenas aqui se houver muitas tarefas */
+    overflow-y: scroll; /* Scroll apenas aqui se houver muitas tarefas */
     box-shadow: 0px 0px 20px 0px rgba(255, 255, 255, 0.1);
 }
 
@@ -51,6 +51,7 @@ nav {
 }
 
 fieldset {
+    width: 35vw;
     color: white;
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.2em;
@@ -136,9 +137,12 @@ input[type="submit"] {
 
 /* Responsividade */
 @media screen and (max-width: 768px) {
+
+    fieldset { width: 100%; }
+
     #contain {
         flex-direction: column;
-        overflow-y: auto;
+       
     }
     section { width: 95%; margin-bottom: 20px; }
     #entrada {
@@ -147,8 +151,3 @@ input[type="submit"] {
     input[type="submit"] { float: none; width: 100%; }
 }
 
-@media screen and (min-width: 768px) {
-    #saida {
-        width: 800px;
-    }
-}
