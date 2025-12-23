@@ -125,6 +125,7 @@ frm.addEventListener('submit', (e) => {
         adicionarTarefaNaTela(texto);
         salvarTarefas();
         frm.desc.value = "";
+        frm.desc.focus();
     }
 });
 
