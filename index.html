@@ -9,42 +9,45 @@
             padding: 0;
             margin: 0;
         }
-         ul li {
-            list-style-type: none;
-         }
-
-         main {
+        
+        main {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            align-items: center;
             width: 100vw;
             height: 100vh;
+        }
+
+        nav {
             display: flex;
-            flex-flow: row nowrap;
-            justify-content: center;
-         }
+            flex-flow: row wrap;
+            justify-content: flex-start;
+            gap: 12px;
+            border: 1px solid black;
+            width: 50vw;
+            border-radius: 15px;
+            padding: 10px;
+        }
 
-         nav {
-            text-align: center;
-         }
-
-         a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-         }
-
-         h1 {
-            margin: 25px;
-         }
+        img {
+            width: 30px;
+            background-color: rgba(173, 216, 230, 0.415);
+            border-radius: 8px;
+            padding: 5px;
+        }
 
     </style>
 </head>
 <body>
     <main>
         <nav>
-            <h1>Acessibilidade</h1>
-            <ul>
-                <li><a href="pages/links.html">Links</a></li>
-                <li><a href="pages/Organização de atividades/index.html">Planejamento de Atividades</a></li>
-            </ul>
+            <a href="pages/links.html"><img src="icons/link.png" alt=""></a>
+            <a href=""><img  src="icons/exagon.png" alt=""></a>
+            <a href=""><img src="icons/calendario.png" alt=""></a>
+            <a href=""><img src="icons/tarefas.png" alt=""></a>
+            <a href=""><img src="icons/vivo.png" alt=""></a>
+            <a href=""><img src="icons/totvs.png" alt=""></a>
         </nav>
     </main>
 </body>
