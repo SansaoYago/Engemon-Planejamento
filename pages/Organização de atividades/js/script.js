@@ -5,8 +5,8 @@ const tarefasMensais = [
     { texto: "Enviar Contador da Impressora para Katiuscia", dia_do_mes: 23 },
     { texto: "ZAP TAXI", dia_do_mes: 15 },
     { texto: "M2E", dia_do_mes: 28 },
-    { texto: "TKS", dia_do_mes: 1 },
-    { texto: "SAMM(Internet)", dia_do_mes: 1 }
+    { texto: "TKS", dia_do_mes: 23 },
+    { texto: "SAMM(Internet)", dia_do_mes: 2 },
 ];
 
 // 1. ADICIONAR TAREFA NA TELA (Com botões de mover)
