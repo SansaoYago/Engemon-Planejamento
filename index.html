@@ -44,7 +44,6 @@
             gap: 15px;
             border: 1px solid rgba(0, 0, 0, 0.225);
             border-radius: 15px;
-
             padding: 10px 25px;
         }
 
@@ -77,6 +76,35 @@
             transform: scale(1.1);
         }
 
+        .modal {
+            display: none;
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.871);
+            padding: 3px 6px;
+            border-radius: 12px;
+            
+        }
+
+        .modal > button {
+            font-family: 'Times New Roman', Times, serif;
+            border: 1px solid rgba(0, 0, 0, 0.449);
+            font-size: 1em;
+            padding: 2px 4px;
+            background-color: rgba(250, 46, 46, 0.93);
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.532);
+            color: white;
+            position: absolute;
+            top: -27px;
+            right: 3px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 350ms;
+        }
+
+        .modal > button:hover {
+            background-color: red;
+        }
+
 
     </style>
 </head>
@@ -84,7 +112,7 @@
     <main>
         <h1>FERRAMENTAS</h1>
         <nav>
-            <a href="#"><img src="icons/acesso.png" alt="">Acesso</a>
+            <a id="acesso" onclick="ClickOn()" href="#"><img src="icons/acesso.png" alt="">Acesso</a>
             <a href="#"><img  src="icons/exagon.png" alt="">Exagon</a>
             <a href="#"><img src="icons/calendario.png" alt="">Vendors</a>
             <a href="#"><img src="icons/tarefas.png" alt="">Tarefas</a>
@@ -92,6 +120,28 @@
             <a href="#"><img src="icons/totvs.png" alt="">Totvs</a>
             <a href="#"><img src="icons/seo.png" alt="">Busca Tag</a>
         </nav>
+        <section class="modal">
+            <a href="">NT02 - Áreas comuns</a>
+            <hr>
+            <a href="">NT03 - Colaboradores</a>
+            <button onclick="ClickOff()">X</button>
+        </section>
     </main>
+
+    <script>
+        const modal = document.querySelector(".modal")
+        const acesso = document. querySelector("#acesso")
+        const nav = document.querySelector("nav")
+
+        function ClickOn() {
+            modal.style.display = "block"
+            nav.style.filter = "Blur(3px)"
+        }
+
+        function ClickOff() {
+            modal.style.display = "none"
+            nav.style.filter = "none"
+        }
+    </script>
 </body>
 </html>
