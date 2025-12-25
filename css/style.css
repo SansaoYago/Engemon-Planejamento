@@ -65,12 +65,13 @@ span {
     border-radius: 8px;
     border: 2px solid transparent;
     padding: 2px;
-    transition: border-color 300ms, background-color 380ms, transform 380ms;
+    transition: border-color 300ms, background-color 380ms, transform 380ms, all 300ms;
     transition-timing-function: ease-in-out;
 }
 
 a:hover, span:hover {
     background-color: rgba(87, 32, 205, 0.175);
+    color: white;
     border-color: rgba(43, 16, 67, 0.171);
     box-shadow: 0px 0px 9px 2px rgba(255, 255, 255, 0.197);
     transform: scale(1.1);
