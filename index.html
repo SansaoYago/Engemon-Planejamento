@@ -4,114 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Engemon</title>
-    <style>
-        * {
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Syne+Mono&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Chewy&display=swap');
-
-        
-        main {
-            
-  
-            background-color: azure;
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: center;
-            align-items: center;
-            width: 100vw;
-            height: 100vh;
-        }
-
-        h1 {
-
-            font-family: "Syne Mono", monospace;
-            font-weight: 400;
-            font-style: normal;
-            color: rgba(0, 0, 0, 0);
-            text-shadow: 2px 2px 1px rgb(0, 0, 0);
-        }
-
-        nav {
-            background-color: rgba(127, 255, 212, 0.234);
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 15px;
-            border: 1px solid rgba(0, 0, 0, 0.225);
-            border-radius: 15px;
-            padding: 10px 25px;
-        }
-
-        img {
-            width: 50px;
-        }
-        
-        a, span {
-            cursor: pointer;
-            font-family: "Chewy", system-ui;
-            font-weight: 600;
-            font-style: normal;
-            
-            color: rgb(0, 0, 96);
-                        
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-radius: 8px;
-            text-decoration: none;
-            text-align: center;
-            text-transform: uppercase;
-            border: 2px solid transparent;
-            padding: 2px;
-            transition: border-color 300ms, background-color 380ms, transform 380ms;
-            transition-timing-function: ease-in-out;
-        }
-        a:hover, span:hover {
-            background-color: rgba(87, 32, 205, 0.286);
-            border-color: rgba(43, 16, 67, 0.704);
-            transform: scale(1.1);
-        }
-
-        .modal {
-            display: none;
-            position: absolute;
-            background-color: rgba(255, 255, 255, 0.871);
-            padding: 3px 6px;
-            border-radius: 12px;
-            
-        }
-
-        .modal > button {
-            font-family: 'Times New Roman', Times, serif;
-            border: 1px solid rgba(0, 0, 0, 0.449);
-            font-size: 1em;
-            padding: 2px 4px;
-            background-color: rgba(250, 46, 46, 0.93);
-            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.532);
-            color: white;
-            position: absolute;
-            top: -27px;
-            right: 3px;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background 350ms;
-        }
-
-        .modal > button:hover {
-            background-color: red;
-        }
-
-
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <main>
-        <h1>FERRAMENTAS</h1>
+        <h1>Engemon Workspace</h1>
         <nav>
             <span id="acesso" onclick="ClickOn()" href="#"><img src="icons/acesso.png" alt="">Acesso</span>
 
