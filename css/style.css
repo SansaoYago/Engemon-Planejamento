@@ -12,7 +12,7 @@
 
 
 main {
-    background: grey url('../img/img.png') no-repeat fixed center / cover ;
+    background: grey url('../img/workspace-engemon.jpg') no-repeat fixed center / cover ;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
